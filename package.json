@@ -19,7 +19,7 @@
     "axios": "^1.6.2",
     "chart.js": "^4.4.1",
     "file-loader": "^6.2.0",
-    "next": "^13.4.19",
+    "next": "13.4.19",
     "nextjs-toploader": "^1.6.4",
     "nookies": "^2.5.2",
     "react": "^18",
@@ -33,6 +33,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.41.1",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
