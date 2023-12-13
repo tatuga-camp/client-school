@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Swal from "sweetalert2";
 
-function signIn() {
+function SignIn() {
   const router = useRouter();
   const user = useQuery(["user"], () => GetUser());
   if (user.data) {
@@ -33,4 +33,4 @@ function signIn() {
   );
 }
 
-export default signIn;
+export default SignIn;
