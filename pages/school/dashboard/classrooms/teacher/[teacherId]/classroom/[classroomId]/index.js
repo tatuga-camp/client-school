@@ -302,7 +302,7 @@ function Index({ user, error }) {
                         className=" w-10 md:w-28 flex items-center justify-center sticky z-10 
                       left-0 bg-white group-hover:bg-slate-200"
                       >
-                        {item.student.number}
+                        {item.student?.number}
                       </td>
                       <td
                         className="w-20 text-xs md:text-base z-10  md:w-60  text-left 
