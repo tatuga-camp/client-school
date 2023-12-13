@@ -409,6 +409,7 @@ function Setting({ userServerSide, error }) {
 }
 
 export default Setting;
+
 export async function getServerSideProps(context) {
   const cookies = parseCookies(context);
   const accessToken = cookies.access_token;
