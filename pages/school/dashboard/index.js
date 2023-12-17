@@ -89,7 +89,7 @@ function Index({ user, error }) {
     if (router.isReady) {
       const { redirect } = router.query;
       if (redirect === "success") {
-        Swal.fire({ title: "สำเร็จ", icon: "success" });
+        Swal.fire({ icon: "success" });
       }
     }
   }, [router.isReady]);
