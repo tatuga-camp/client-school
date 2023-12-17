@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import { FcBusinessContact, FcLineChart, FcViewDetails } from 'react-icons/fc';
-import Swal from 'sweetalert2';
-import { DownloadExcelAttendance } from '../../service/dowloadFile';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { DownloadExcelAttendance } from "../../service/dowloadFile";
+import { useRouter } from "next/router";
 
 function DowloadExcelAttendacne({ close, language, teacherId, user }) {
   const router = useRouter();
   const [excelData, setExcelData] = useState({
     holiday:
-      language === 'Thai' ? 'ลา' : language === 'English' && 'take a leave',
-    sick: language === 'Thai' ? 'ป่วย' : language === 'English' && 'sick',
-    absent: language === 'Thai' ? 'ขาด' : language === 'English' && 'absent',
+      language === "Thai" ? "ลา" : language === "English" && "take a leave",
+    sick: language === "Thai" ? "ป่วย" : language === "English" && "sick",
+    absent: language === "Thai" ? "ขาด" : language === "English" && "absent",
     present:
-      language === 'Thai' ? 'มาเรียน' : language === 'English' && 'present',
-    late: language === 'Thai' ? 'สาย' : language === 'English' && 'late',
-    warn: language === 'Thai' ? 'เฝ้าระวัง' : language === 'English' && 'warn',
+      language === "Thai" ? "มาเรียน" : language === "English" && "present",
+    late: language === "Thai" ? "สาย" : language === "English" && "late",
+    warn: language === "Thai" ? "เฝ้าระวัง" : language === "English" && "warn",
   });
   const handleChangeExcelData = (e) => {
     const { name, value } = e.target;
@@ -39,15 +38,15 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
         teacherId,
       });
       Swal.fire(
-        'ดาวโหลดสำเร็จ',
-        'ดาวโหลดไฟล์รายงานผลเข้าเรียนเรียบร้อย',
-        'success',
+        "ดาวโหลดสำเร็จ",
+        "ดาวโหลดไฟล์รายงานผลเข้าเรียนเรียบร้อย",
+        "success"
       );
     } catch (err) {
       Swal.fire(
-        'error',
+        "error",
         err?.props?.response?.data?.message.toString(),
-        'error',
+        "error"
       );
       console.error(err);
     }
@@ -63,13 +62,13 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
           className=" w-80 flex flex-col justify-center items-center "
         >
           <span className="text-xl font-semibold text-[#2C7CD1]">
-            {language === 'Thai' && 'โหลดไฟล์ Excel'}
-            {language === 'English' && 'Dowload file excel'}
+            {language === "Thai" && "โหลดไฟล์ Excel"}
+            {language === "English" && "Dowload file excel"}
           </span>
           <div className="flex flex-col relative">
             <label className="font-sans font-normal">
-              {language === 'Thai' && 'สถานะะมาเรียน'}
-              {language === 'English' && 'present'}
+              {language === "Thai" && "สถานะะมาเรียน"}
+              {language === "English" && "present"}
             </label>
             <input
               onChange={handleChangeExcelData}
@@ -79,9 +78,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
               name="present"
               value={excelData.present}
               placeholder={
-                language === 'Thai'
-                  ? 'กรอกอักษร เมื่อนักเรียนมีสถานะมาเรียน'
-                  : language === 'English' &&
+                language === "Thai"
+                  ? "กรอกอักษร เมื่อนักเรียนมีสถานะมาเรียน"
+                  : language === "English" &&
                     "Put any text when student's present"
               }
               maxLength="10"
@@ -90,8 +89,8 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
           </div>
           <div className="flex flex-col relative">
             <label className="font-sans font-normal">
-              {language === 'Thai' && 'สถานะะป่วย'}
-              {language === 'English' && 'sick'}
+              {language === "Thai" && "สถานะะป่วย"}
+              {language === "English" && "sick"}
             </label>
             <input
               onChange={handleChangeExcelData}
@@ -101,9 +100,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
               name="sick"
               value={excelData.sick}
               placeholder={
-                language === 'Thai'
-                  ? 'กรอกอักษร เมื่อนักเรียนมีสถานะป่วย'
-                  : language === 'English' && "Put any text when student's sick"
+                language === "Thai"
+                  ? "กรอกอักษร เมื่อนักเรียนมีสถานะป่วย"
+                  : language === "English" && "Put any text when student's sick"
               }
               maxLength="10"
               required
@@ -112,8 +111,8 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
 
           <div className="flex flex-col relative mt-2">
             <label className="font-sans font-normal">
-              {language === 'Thai' && 'สถานะขาดเรียน'}
-              {language === 'English' && 'absent'}
+              {language === "Thai" && "สถานะขาดเรียน"}
+              {language === "English" && "absent"}
             </label>
             <input
               onChange={handleChangeExcelData}
@@ -123,9 +122,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
               name="absent"
               value={excelData.absent}
               placeholder={
-                language === 'Thai'
-                  ? 'กรอกอักษร เมื่อนักเรียนมีสถานะขาดเรียน'
-                  : language === 'English' &&
+                language === "Thai"
+                  ? "กรอกอักษร เมื่อนักเรียนมีสถานะขาดเรียน"
+                  : language === "English" &&
                     "Put any text when student's absent"
               }
               maxLength="10"
@@ -134,8 +133,8 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
           </div>
           <div className="flex flex-col relative mt-2">
             <label className="font-sans font-normal">
-              {language === 'Thai' && 'สถาะนะลา'}
-              {language === 'English' && 'take a leave  '}
+              {language === "Thai" && "สถาะนะลา"}
+              {language === "English" && "take a leave  "}
             </label>
             <input
               onChange={handleChangeExcelData}
@@ -145,9 +144,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
               name="holiday"
               value={excelData.holiday}
               placeholder={
-                language === 'Thai'
-                  ? 'กรอกอักษร เมื่อนักเรียนมีสถานะลา'
-                  : language === 'English' &&
+                language === "Thai"
+                  ? "กรอกอักษร เมื่อนักเรียนมีสถานะลา"
+                  : language === "English" &&
                     "Put any text when student's on holiday"
               }
               maxLength="10"
@@ -156,8 +155,8 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
           </div>
           <div className="flex flex-col relative mt-2">
             <label className="font-sans font-normal">
-              {language === 'Thai' && 'สถาะนะสาย'}
-              {language === 'English' && 'late '}
+              {language === "Thai" && "สถาะนะสาย"}
+              {language === "English" && "late "}
             </label>
             <input
               onChange={handleChangeExcelData}
@@ -167,19 +166,19 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
               name="late"
               value={excelData.late}
               placeholder={
-                language === 'Thai'
-                  ? 'กรอกอักษร เมื่อนักเรียนมีสถานะสาย'
-                  : language === 'English' && "Put any text when student's late"
+                language === "Thai"
+                  ? "กรอกอักษร เมื่อนักเรียนมีสถานะสาย"
+                  : language === "English" && "Put any text when student's late"
               }
               maxLength="10"
               required
             />
           </div>
-          {user?.schoolUser?.organization === 'immigration' && (
+          {user?.schoolUser?.organization === "immigration" && (
             <div className="flex flex-col relative mt-2">
               <label className="font-sans font-normal">
-                {language === 'Thai' && 'เฝ้าระวัง'}
-                {language === 'English' && 'warn '}
+                {language === "Thai" && "เฝ้าระวัง"}
+                {language === "English" && "warn "}
               </label>
               <input
                 onChange={handleChangeExcelData}
@@ -189,9 +188,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
                 name="warn"
                 value={excelData.warn}
                 placeholder={
-                  language === 'Thai'
-                    ? 'กรอกอักษร เมื่อนักเรียนมีสถานะเฝ้าระวัง'
-                    : language === 'English' &&
+                  language === "Thai"
+                    ? "กรอกอักษร เมื่อนักเรียนมีสถานะเฝ้าระวัง"
+                    : language === "English" &&
                       "Put any text when student's warn"
                 }
                 maxLength="10"
@@ -207,8 +206,8 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
                active:border-solid  focus:border-2 
               focus:border-solid"
           >
-            {language === 'Thai' && 'ดาวน์โหลด'}
-            {language === 'English' && 'dowload'}
+            {language === "Thai" && "ดาวน์โหลด"}
+            {language === "English" && "dowload"}
           </button>
         </form>
       </div>

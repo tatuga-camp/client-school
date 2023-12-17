@@ -25,7 +25,6 @@ import { MdSchool } from "react-icons/md";
 import ShowStudentAttendanceInfo from "../../../../../../../../components/form/school/student/showStudentAttendanceInfo";
 import { SiMicrosoftexcel } from "react-icons/si";
 import DowloadExcelAttendacne from "../../../../../../../../components/form/dowloadExcelAttendacne";
-import ShowNoteAttendance from "../../../../../../../../components/form/showNoteAttendance";
 import ShowAttendanceNote from "../../../../../../../../components/form/school/attendance/showAttendanceNote";
 
 function Index({ user, error }) {
@@ -396,33 +395,33 @@ function Index({ user, error }) {
                       })}
                       <td className="w-36 flex items-center justify-center ">
                         <span className="text-center">
-                          {item.statistics.number.present}
+                          {item?.statistics?.number?.present}
                         </span>
                       </td>
                       <td className="w-36 flex items-center justify-center ">
                         <span className="text-center">
-                          {item.statistics.number.late}
+                          {item?.statistics?.number?.late}
                         </span>
                       </td>
                       <td className="w-36 flex items-center justify-center ">
                         <span className="text-center">
-                          {item.statistics.number.holiday}
+                          {item?.statistics?.number?.holiday}
                         </span>
                       </td>
                       <td className="w-36 flex items-center justify-center ">
                         <span className="text-center">
-                          {item.statistics.number.sick}
+                          {item?.statistics?.number?.sick}
                         </span>
                       </td>
                       <td className="w-36 flex items-center justify-center ">
                         <span className="text-center">
-                          {item.statistics.number.absent}
+                          {item?.statistics?.number?.absent}
                         </span>
                       </td>
                       {user?.schoolUser?.organization === "immigration" && (
                         <td className="w-36 flex items-center justify-center ">
                           <span className="text-center">
-                            {item.statistics.number.warn}
+                            {item?.statistics?.number?.warn}
                           </span>
                         </td>
                       )}
