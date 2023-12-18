@@ -25,8 +25,9 @@ function DowloadExcelAttendacne({ close, language, teacherId, user }) {
     });
   };
 
-  const handleDownloadFile = async () => {
+  const handleDownloadFile = async (e) => {
     try {
+      e.preventDefault();
       await DownloadExcelAttendance({
         classroomId: router.query.classroomId,
         absent: excelData.absent,

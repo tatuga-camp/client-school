@@ -17,7 +17,7 @@ export async function DownloadExcelAttendance({
     const access_token = cookies.access_token;
     axios
       .post(
-        `${process.env.MAIN_SERVER_URL}/excel/download/attendance`,
+        `${process.env.MAIN_SERVER_URL}/excel/school/download/attendance`,
         {
           absent,
           present,
@@ -26,11 +26,9 @@ export async function DownloadExcelAttendance({
           late,
           warn,
           teacherId,
+          classroomId: classroomId,
         },
         {
-          params: {
-            classroomId: classroomId,
-          },
           headers: {
             Authorization: `Bearer ${access_token}`,
           },
